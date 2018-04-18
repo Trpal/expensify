@@ -1,8 +1,12 @@
 import moment from 'moment';
 
 // get visible expenses
-
-export default (expenses, {text, sortBy, startDate, endDate }) => {
+/**
+ *
+ * @param {Array} expenses an array of expenses to filter
+ * @param {Object} filters startdate and enddate as moment instances
+ */
+const selectExpenses = (expenses, {text, sortBy, startDate, endDate }) => {
 	return expenses.filter((expense) => {
 		const createdAtMoment = moment(expense.createdAt);
 		const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
@@ -17,3 +21,5 @@ export default (expenses, {text, sortBy, startDate, endDate }) => {
 		}
 	});
 }
+
+export default selectExpenses;
