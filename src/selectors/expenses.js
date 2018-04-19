@@ -4,7 +4,7 @@ import moment from 'moment';
 /**
  *
  * @param {Array} expenses an array of expenses to filter
- * @param {Object} filters startdate and enddate as moment instances
+ * @param {Object} filters contains text, sortBy, startDate, endDate
  */
 const selectExpenses = (expenses, {text, sortBy, startDate, endDate }) => {
 	return expenses.filter((expense) => {
