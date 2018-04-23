@@ -1,6 +1,5 @@
 import moment from 'moment';
 
-
 export default [{
 	id: '1',
 	description: 'Test',
