@@ -55,42 +55,45 @@ export default class ExpenseForm extends React.Component {
 
 	render() {
 		return (
-			<div>
-				{ (this.state.error.length > -1 && <p>{this.state.error}</p>)}
-				<form onSubmit={this.onSubmit}>
-					<input
-						name="description"
-						type="text"
-						placeholder="description"
-						autoFocus
-						value={this.state.description}
-						onChange={this.onFieldChange}
-					/>
-					<input
-						name="amount"
-						type="text"
-						placeholder="Amount"
-						value={this.state.amount}
-						onChange={this.onAmountChange}
-					/>
-					<SingleDatePicker
-						date={this.state.createdAt}
-						onDateChange={this.onDateChange}
-						focused={this.state.calendarFocused}
-						onFocusChange={this.onFocusChange}
-						numberOfMonths={1}
-						isOutsideRange={() => false}
-					/>
-					<textarea
-						name="note"
-						placeholder="Add a note for your expense (optional)"
-						value={this.state.note}
-						onChange={this.onFieldChange}
-					>
-					</textarea>
-					<button>Add expense</button>
-				</form>
-			</div>
+			<form className="form" onSubmit={this.onSubmit}>
+				{(this.state.error.length > -1 && <p className="form__error">{this.state.error}</p>)}
+				<input
+					name="description"
+					className="text-input"
+					type="text"
+					placeholder="description"
+					autoFocus
+					value={this.state.description}
+					onChange={this.onFieldChange}
+				/>
+				<input
+					name="amount"
+					type="text"
+					className="text-input"
+					placeholder="Amount"
+					value={this.state.amount}
+					onChange={this.onAmountChange}
+				/>
+				<SingleDatePicker
+					date={this.state.createdAt}
+					onDateChange={this.onDateChange}
+					focused={this.state.calendarFocused}
+					onFocusChange={this.onFocusChange}
+					numberOfMonths={1}
+					isOutsideRange={() => false}
+				/>
+				<textarea
+					name="note"
+					className="textarea"
+					placeholder="Add a note for your expense (optional)"
+					value={this.state.note}
+					onChange={this.onFieldChange}
+				>
+				</textarea>
+				<div>
+					<button className="button">Save expense</button>
+				</div>
+			</form>
 		)
 	}
 }
